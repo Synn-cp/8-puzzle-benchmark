@@ -21,10 +21,10 @@ def get_board_parity(board: list[list[int]]) -> int:
         return (inversions % 2)
 
     for i in range(3):
-            for j in range(3):
-                if (board[i][j] == -1):
-                    blank_row = i
-                    break
+        for j in range(3):
+            if (board[i][j] == -1):
+                blank_row = i
+                break
 
     return (inversions + blank_row) % 2
 
