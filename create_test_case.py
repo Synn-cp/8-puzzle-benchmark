@@ -55,4 +55,8 @@ def save_test_cases(filename: str = "test_cases.json", num_trials: int = 100, se
 
     print(f"Đã lưu {num_trials} bộ test vào {filename}")
 
-save_test_cases("test_cases.json", num_trials=100, seed=42)
+def main():
+    save_test_cases("test_cases.json", num_trials=100, seed=42)
+
+if (__name__ == "__main__"):
+    main()

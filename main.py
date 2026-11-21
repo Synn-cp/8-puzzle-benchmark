@@ -2,7 +2,6 @@ from collections import deque
 from typing import Callable
 import heapq
 import gc
-import random
 import time
 import tracemalloc
 import json
@@ -194,34 +193,6 @@ def uninformed_solve(st_board: list , goal_board: list, type: str) -> tuple[list
 
                     new_state = state(cur_state._step + 1, new_board, new_space, cur_state)
                     q.append(new_state)
-
-def create_board():
-    nums = [1, 2, 3, 4, 5, 6, 7, 8, -1]
-    random.shuffle(nums)
-    
-    board = [nums[i:i+3] for i in range(0, 9, 3)]
-    return board
-
-def get_board_parity(board: list[list[int]]) -> int:
-    n = len(board)
-    flat = [cell for row in board for cell in row if cell != -1]
-    inversions = 0
-    for i in range(len(flat)):
-        for j in range(i + 1, len(flat)):
-            if (flat[i] > flat[j]):
-                inversions += 1
-                
-    if (n % 2 == 1):
-        return (inversions % 2)
-
-    for i in range(3):
-            for j in range(3):
-                if (board[i][j] == -1):
-                    blank_row = i
-                    break
-
-    return (inversions + blank_row) % 2
-
 
 dx = [1, -1, 0, 0]
 dy = [0, 0, -1, 1]
